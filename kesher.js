@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 let initialProducts = [];
  
-export default function App() {
+export default function kesher() {
 
   const [search,setSearch]= useState("");
   const [products,setProducts]= useState(initialProducts);
@@ -20,11 +20,7 @@ export default function App() {
   const renderProduct = ({item}) => (
     <View style = {styles.product}>
     <View style={{flex:1}}>
-    <Image
-         source={require('./assets/grey.png')} 
-         style={{padding:8}}  />
-       <Text style ={styles.text}>{item.title}</Text>
-       
+      <Text style ={styles.text}>{item.title}</Text>
       </View> 
       </View>
   );
@@ -41,34 +37,24 @@ export default function App() {
     
     <View style={styles.container}>
     <View>
-    <Text style={{paddingTop:80,fontSize:35,paddingRight:15}}>קשר ניצן </Text>
+    <Text style={{paddingTop:80,fontSize:35,paddingRight:15}}>שי</Text>
     <View style={styles.searchSection}>
-    <Image
-   source={require('./assets/search_grey.png')} 
-         
-            style={styles.image}
-          />
       <TextInput
-      placeholder ="חפש או הזן רשת" 
         style={styles.input}
         onChangeText={(text ) => handleSearch(text)}
         value={search}
         
-        
+        placeholder ="חפש או הזן רשת" 
         placeholderTextColor="#9F9EA3" 
         
       />
-     
+      
                 </View>
-                <>
      <FlatList
-
         data={products}
         renderItem={renderProduct}
         keyExtractor={(item) => item.id.toString()}
       />
-      
-      </>
     </View>
     </View>
   );
@@ -80,25 +66,22 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     marginTop: 30,
   },
-  image:{
-    flex:1,
-    width:100,
-  },
+ 
   product:{
     flex:1,
     width: "100%",
-    height: 40,
-    margin: 12,
-    
+    height: 102,
     alignSelf: "center",
+    paddingRight:34,
     backgroundColor : "#FFFFFF" ,
-    elevation : 5,
+    borderRadius : 5,
+    elevation : 10,
     
     
   },
   input:{
     flex: 1,
-    height: 40.5,
+    height: 40,
     margin: 12,
     padding: 10,
     
@@ -109,23 +92,25 @@ const styles = StyleSheet.create({
   text:
   {
     fontSize:23,
-    padding:3,
+    padding:10,
   },
   icon: {
     padding: 10,
 
-    color:"#9F9EA3",
 },
 searchSection: {
   flexDirection: 'row',
   alignItems: 'center',
 },
+
 image:{
-  padding: 10,
-  margin: 1,
-  resizeMode: 'stretch',
-  alignItems: 'center',
-  color:"#9F9EA3",
+    padding: 10,
+    margin: 5,
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+    color:"#9F9EA3",
 
 },
 });
